@@ -1,11 +1,11 @@
-function GetURLParameter(sParam)
+function GetURLParameter()
 {
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) 
+    for (var i = 0; i < sURLVariables.length; i++)
     {
         var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam) 
+        if (sParameterName[0] == "code") 
         {
             var codeParam = sParameterName[1];
         }
@@ -25,4 +25,5 @@ function GetURLParameter(sParam)
     })
     .then(response => response.json())
     .then(response => console.log(JSON.stringify(response)))
-}​
+}
+document.getElementById("tokenBtn").onclick = GetURLParameter;
